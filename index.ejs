@@ -25,15 +25,21 @@
         <h1 class="display-4">メッセージボード</h1>
     </header>
     <div role="main">
-        <p>あなたのログインネームを入力ください。</p>
+        <p>※メッセージは最大10個まで保存されます。</p>
         <form action="/" method="post">
             <p id="id"></p>
+            <input type="hidden" name="id" id="id_input">
             <div class="form-group">
-                <label for="id_input">Login name:</label>
-                <input type="text" id="id_input" class="form-control">
+                <label for="msg">Message</label>
+                <input type="text" name="送信" id="msg" class="form-control">
             </div>
-            <button onclick="setId();" class="btn btn-primary">送信</button>
+            <input type="submit" value="送信" class="btn btn-primary">
         </form>
+        <table class="table">
+            <% for(var i in data) { %>
+            <%- include('data_item',{val:data[i]}) %>
+            <% } %>
+        </table>
     </div>
 </body>
 
